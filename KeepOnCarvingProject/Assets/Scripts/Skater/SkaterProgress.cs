@@ -7,7 +7,7 @@ public class SkaterProgress : MonoBehaviour
     private SharedFloat distance;
 
     [SerializeField]
-    private float speed;
+    private SharedFloat speed;
 
     private void Awake()
     {
