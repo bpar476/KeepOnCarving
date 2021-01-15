@@ -4,15 +4,25 @@ using System.Collections;
 public class LaneTransition : MonoBehaviour
 {
 
+    private static readonly string ANIM_BOOL_LANE_UP = "ChangeLaneUp";
+    private static readonly string ANIM_BOOL_LANE_DOWN = "ChangeLaneDown";
+
     [SerializeField]
     private RunLanesConfiguration lanesConfiguration;
 
     [SerializeField]
     private float transitionDuration;
 
+    private Animator animator;
+
     private bool changingLanes = false;
     private bool inTopLane;
     private float meanLanePosition;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     private void Start()
     {
@@ -27,11 +37,13 @@ public class LaneTransition : MonoBehaviour
         {
             if (SkaterInput.Down() && inTopLane)
             {
+                animator.SetBool(ANIM_BOOL_LANE_DOWN, true);
                 SwitchToLane(lanesConfiguration.Bottom);
             }
 
             if (SkaterInput.Up() && !inTopLane)
             {
+                animator.SetBool(ANIM_BOOL_LANE_UP, true);
                 SwitchToLane(lanesConfiguration.Top);
             }
         }
@@ -59,6 +71,8 @@ public class LaneTransition : MonoBehaviour
 
         HardSetLane(lane);
         changingLanes = false;
+        animator.SetBool(ANIM_BOOL_LANE_DOWN, false);
+        animator.SetBool(ANIM_BOOL_LANE_UP, false);
     }
 
     private void HardSetLane(RunLane lane)
