@@ -19,15 +19,11 @@ public class SkaterProgressUI : MonoBehaviour
     {
         text = GetComponent<TMP_Text>();
         eventBus = eventBusContainer.Bus;
-        eventBus.ListenTo<SkaterCrashEvent>(ignored => skaterActive = false);
     }
 
     private void Update()
     {
-        if (skaterActive)
-        {
-            text.text = ((int)distance.Value).ToString();
-        }
+        text.text = ((int)distance.Value).ToString();
     }
 
 }
