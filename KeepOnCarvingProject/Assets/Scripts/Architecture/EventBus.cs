@@ -5,21 +5,23 @@ using UnityEngine;
 public class EventBus
 {
 
-    private IDictionary<Type, List<IEventResponder>> channels;
+    private IDictionary<Type, IDictionary<Guid, IEventResponder>> channels;
 
     public EventBus()
     {
-        channels = new Dictionary<Type, List<IEventResponder>>();
+        channels = new Dictionary<Type, IDictionary<Guid, IEventResponder>>();
     }
 
-    public void ListenTo<TEvent>(Action<TEvent> response) where TEvent : KeepOnCarvingEvent
+    public Guid ListenTo<TEvent>(Action<TEvent> response) where TEvent : KeepOnCarvingEvent
     {
         var type = typeof(TEvent);
         if (!channels.ContainsKey(type))
         {
-            channels.Add(type, new List<IEventResponder>());
+            channels.Add(type, new Dictionary<Guid, IEventResponder>());
         }
-        channels[type].Add(new EventResponder<TEvent>(response));
+        var guid = Guid.NewGuid();
+        channels[type].Add(guid, new EventResponder<TEvent>(response));
+        return guid;
     }
 
     public void Raise<TEvent>(TEvent publishedEvent) where TEvent : KeepOnCarvingEvent
@@ -28,12 +30,21 @@ public class EventBus
         Debug.LogFormat("Raised {0} event", type.Name);
         if (!channels.ContainsKey(type))
         {
-            channels.Add(type, new List<IEventResponder>());
+            channels.Add(type, new Dictionary<Guid, IEventResponder>());
         }
-        channels[type].ForEach(action =>
+        foreach (var entry in channels[type])
         {
-            action.Respond(publishedEvent);
-        });
+            entry.Value.Respond(publishedEvent);
+        }
+    }
+
+    public void UnsubscribeFrom<TEvent>(Guid identifier)
+    {
+        var type = typeof(TEvent);
+        if (channels.ContainsKey(type))
+        {
+            channels[type].Remove(identifier);
+        }
     }
 }
 

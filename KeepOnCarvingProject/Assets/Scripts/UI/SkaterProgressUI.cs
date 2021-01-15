@@ -13,8 +13,6 @@ public class SkaterProgressUI : MonoBehaviour
 
     private TMP_Text text;
 
-    private bool skaterActive = true;
-
     private void Awake()
     {
         text = GetComponent<TMP_Text>();

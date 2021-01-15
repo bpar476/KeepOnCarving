@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [CreateAssetMenu(fileName = "SharedFloat", menuName = "KeepOnCarving/SharedFloat", order = 50)]
 public class SharedFloat : ScriptableObject
@@ -17,6 +18,7 @@ public class SharedFloat : ScriptableObject
     private void OnEnable()
     {
         Value = defaultValue;
+        SceneManager.sceneLoaded += (_1, _2) => Value = defaultValue;
     }
 
     public static float operator *(SharedFloat a, float b)
