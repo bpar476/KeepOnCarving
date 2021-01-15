@@ -10,9 +10,6 @@ public class SkateCrash : MonoBehaviour
     private SharedFloat skaterSpeed;
 
     [SerializeField]
-    private Animator skateBoardAnimator;
-
-    [SerializeField]
     private EventBusContainer busContainer;
 
     private Animator animator;
@@ -30,6 +27,5 @@ public class SkateCrash : MonoBehaviour
         eventBus.Raise<SkaterCrashEvent>(new SkaterCrashEvent());
         skaterSpeed.Value = 0;
         animator.SetTrigger("crash");
-        skateBoardAnimator.speed = 0;
     }
 }

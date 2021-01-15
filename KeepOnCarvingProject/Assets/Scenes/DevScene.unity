@@ -199,7 +199,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.32, y: 0.32}
+  m_Size: {x: 0.16, y: 0.04}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -214,7 +214,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 190278357}
-  - component: {fileID: 190278358}
   m_Layer: 0
   m_Name: SkateboardParent
   m_TagString: Untagged
@@ -237,25 +236,6 @@ Transform:
   m_Father: {fileID: 1181532115}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &190278358
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 190278356}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7cdb2148114ada94690bf6700b9e93f4, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &450135345
 GameObject:
   m_ObjectHideFlags: 0
@@ -897,7 +877,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crashDuration: 2
   skaterSpeed: {fileID: 11400000, guid: dcac5da59df026f44b6019551debb417, type: 2}
-  skateBoardAnimator: {fileID: 190278358}
+  skateBoardAnimator: {fileID: 0}
   busContainer: {fileID: 11400000, guid: bde0310b582eb1f47bd89eecefd90411, type: 2}
 --- !u!114 &1181532121
 MonoBehaviour:
