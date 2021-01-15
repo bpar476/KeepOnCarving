@@ -3,17 +3,20 @@
 public class RandomDistanceSpawner : MonoBehaviour
 {
     /// <summary>
-    /// The minimum distance the skater should travel before a new object can spawn
+    /// The minimum distance between spawns
     /// </summary>
     [SerializeField]
     private float minDistance;
 
     /// <summary>
-    /// The maximum distance the skater should travel before a new object will be spawned
+    /// The maximum distance between spawns
     /// </summary>
     [SerializeField]
     private float maxDistance;
 
+    /// <summary>
+    ///  Pool of objects that can be spawned
+    /// </summary>
     [SerializeField]
     private PrefabPoolGenerator generator;
 
@@ -30,22 +33,28 @@ public class RandomDistanceSpawner : MonoBehaviour
 
     private void Start()
     {
+        nextSpawnLocation = 0;
         CalculateNextSpawnLocation();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (skaterDistance > nextSpawnLocation)
         {
-            generator.Spawn(new Vector2(nextSpawnLocation + offscreenOffset, transform.position.y));
+            Spawn();
             CalculateNextSpawnLocation();
         }
     }
 
+    public virtual GameObject Spawn()
+    {
+        return generator.Spawn(new Vector2(nextSpawnLocation + offscreenOffset, transform.position.y));
+    }
+
     private void CalculateNextSpawnLocation()
     {
+        var prevSpawnLocation = nextSpawnLocation;
         var distance = Random.Range(minDistance, maxDistance);
-        nextSpawnLocation = skaterDistance + distance;
+        nextSpawnLocation = prevSpawnLocation + distance;
     }
 }

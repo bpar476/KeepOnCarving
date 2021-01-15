@@ -6,4 +6,9 @@ public class RunLanesConfiguration : ScriptableObject
     public RunLane Top;
 
     public RunLane Bottom;
+
+    public enum Lane
+    {
+        Top, Bottom
+    }
 }
