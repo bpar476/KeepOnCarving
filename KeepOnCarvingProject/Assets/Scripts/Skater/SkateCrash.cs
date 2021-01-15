@@ -10,30 +10,26 @@ public class SkateCrash : MonoBehaviour
     private SharedFloat skaterSpeed;
 
     [SerializeField]
+    private Animator skateBoardAnimator;
+
+    [SerializeField]
     private EventBusContainer busContainer;
+
+    private Animator animator;
 
     private EventBus eventBus;
 
     private void Awake()
     {
         eventBus = busContainer.Bus;
+        animator = GetComponent<Animator>();
     }
 
     public void Crash()
     {
         eventBus.Raise<SkaterCrashEvent>(new SkaterCrashEvent());
-        StartCoroutine(StopSkaterGradually());
-    }
-
-    private IEnumerator StopSkaterGradually()
-    {
-        var currentSpeed = skaterSpeed.Value;
-        for (float i = 0; i < crashDuration; i += Time.fixedDeltaTime)
-        {
-            skaterSpeed.Value = Mathf.Lerp(currentSpeed, 0, i / crashDuration);
-            yield return new WaitForFixedUpdate();
-        }
-
         skaterSpeed.Value = 0;
+        animator.SetTrigger("crash");
+        skateBoardAnimator.speed = 0;
     }
 }

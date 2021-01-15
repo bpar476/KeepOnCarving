@@ -763,6 +763,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crashDuration: 2
   skaterSpeed: {fileID: 11400000, guid: dcac5da59df026f44b6019551debb417, type: 2}
+  skateBoardAnimator: {fileID: 190278358}
   busContainer: {fileID: 11400000, guid: bde0310b582eb1f47bd89eecefd90411, type: 2}
 --- !u!114 &1181532121
 MonoBehaviour:
@@ -1088,15 +1089,15 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.098997496
+    x: 0
     y: 0
-    width: 0.802005
-    height: 0.9977729
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
