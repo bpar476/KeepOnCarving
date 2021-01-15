@@ -270,6 +270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14a78ad3c12a4b343ad797700a4aa0c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventBusContainer: {fileID: 11400000, guid: bde0310b582eb1f47bd89eecefd90411, type: 2}
   distance: {fileID: 11400000, guid: fffeb7a2384b319408804df5c40fda17, type: 2}
 --- !u!1 &617352616
 GameObject:
@@ -510,6 +511,8 @@ GameObject:
   - component: {fileID: 1181532118}
   - component: {fileID: 1181532116}
   - component: {fileID: 1181532119}
+  - component: {fileID: 1181532121}
+  - component: {fileID: 1181532120}
   m_Layer: 0
   m_Name: PlayerParent
   m_TagString: Player
@@ -612,6 +615,35 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1181532120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181532114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85e8b83f8de5ad24182da5dfb6e3d41a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crashDuration: 2
+  skaterSpeed: {fileID: 11400000, guid: dcac5da59df026f44b6019551debb417, type: 2}
+  busContainer: {fileID: 11400000, guid: bde0310b582eb1f47bd89eecefd90411, type: 2}
+--- !u!114 &1181532121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181532114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3466bd215f268f2419dc1a08cc4d38ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distance: {fileID: 11400000, guid: fffeb7a2384b319408804df5c40fda17, type: 2}
+  speed: {fileID: 11400000, guid: dcac5da59df026f44b6019551debb417, type: 2}
 --- !u!1 &1235756241
 GameObject:
   m_ObjectHideFlags: 0
@@ -803,7 +835,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1593134004}
   - component: {fileID: 1593134003}
-  - component: {fileID: 1593134005}
   m_Layer: 0
   m_Name: PlayerSprite
   m_TagString: Untagged
@@ -876,20 +907,6 @@ Transform:
   m_Father: {fileID: 1181532115}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1593134005
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1593134002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3466bd215f268f2419dc1a08cc4d38ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  distance: {fileID: 11400000, guid: fffeb7a2384b319408804df5c40fda17, type: 2}
-  speed: {fileID: 11400000, guid: dcac5da59df026f44b6019551debb417, type: 2}
 --- !u!1 &1715029914
 GameObject:
   m_ObjectHideFlags: 0

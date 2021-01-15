@@ -8,13 +8,13 @@ public class CrashObstacle : MonoBehaviour
         var gobj = other.gameObject;
         if (gobj.IsPlayer())
         {
-            CrashPlayer();
+            CrashPlayer(gobj.GetComponent<SkateCrash>());
         }
     }
 
-    private void CrashPlayer()
+    private void CrashPlayer(SkateCrash crashBehaviour)
     {
-        Debug.Log("Player crashed");
+        crashBehaviour.Crash();
     }
 
 }
