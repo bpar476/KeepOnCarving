@@ -1,9 +1,10 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SkaterOllie : MonoBehaviour
 {
+    private static readonly string ANIM_BOOL_OLLIE = "ollie";
+
     [SerializeField]
     private float jumpDistance;
 
@@ -13,7 +14,13 @@ public class SkaterOllie : MonoBehaviour
     [SerializeField]
     private SharedFloat skaterDistance;
 
+    private Animator animator;
     private bool jumping = false;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     private void Update()
     {
@@ -25,6 +32,7 @@ public class SkaterOllie : MonoBehaviour
 
     private IEnumerator Ollie()
     {
+        animator.SetBool(ANIM_BOOL_OLLIE, true);
         jumping = true;
         var currentDistance = skaterDistance.Value;
         var initialY = transform.position.y;
@@ -48,5 +56,6 @@ public class SkaterOllie : MonoBehaviour
 
         transform.position = new Vector3(transform.position.x, initialY);
         jumping = false;
+        animator.SetBool(ANIM_BOOL_OLLIE, false);
     }
 }
