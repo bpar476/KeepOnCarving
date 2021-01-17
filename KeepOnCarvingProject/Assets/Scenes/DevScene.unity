@@ -760,6 +760,7 @@ GameObject:
   - component: {fileID: 1181532119}
   - component: {fileID: 1181532121}
   - component: {fileID: 1181532120}
+  - component: {fileID: 1181532122}
   m_Layer: 0
   m_Name: PlayerParent
   m_TagString: Player
@@ -796,7 +797,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.8}
+  m_Offset: {x: 0.15, y: 0.8}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -807,7 +808,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 1.4}
+  m_Size: {x: 0.4, y: 1.4}
   m_EdgeRadius: 0
 --- !u!114 &1181532117
 MonoBehaviour:
@@ -892,6 +893,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distance: {fileID: 11400000, guid: fffeb7a2384b319408804df5c40fda17, type: 2}
   speed: {fileID: 11400000, guid: dcac5da59df026f44b6019551debb417, type: 2}
+--- !u!114 &1181532122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181532114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06eebb8d2b8220343a1a59e7bdea8d8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpDistance: 4
+  jumpHeight: 2.3
+  skaterDistance: {fileID: 11400000, guid: fffeb7a2384b319408804df5c40fda17, type: 2}
 --- !u!1 &1235756241
 GameObject:
   m_ObjectHideFlags: 0
