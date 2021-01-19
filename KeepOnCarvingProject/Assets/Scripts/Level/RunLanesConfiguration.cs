@@ -3,9 +3,9 @@
 [CreateAssetMenu(fileName = "RunLanesConfiguration", menuName = "KeepOnCarving/RunLanesConfiguration", order = 51)]
 public class RunLanesConfiguration : ScriptableObject
 {
-    public RunLane Top;
+    public RunLaneData Top;
 
-    public RunLane Bottom;
+    public RunLaneData Bottom;
 
     public enum Lane
     {

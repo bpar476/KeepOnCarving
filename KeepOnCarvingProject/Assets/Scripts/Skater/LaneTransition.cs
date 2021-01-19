@@ -49,13 +49,13 @@ public class LaneTransition : MonoBehaviour
         }
     }
 
-    private void SwitchToLane(RunLane lane)
+    private void SwitchToLane(RunLaneData lane)
     {
         changingLanes = true;
         StartCoroutine(SmoothTransitionToLane(lane));
     }
 
-    private IEnumerator SmoothTransitionToLane(RunLane lane)
+    private IEnumerator SmoothTransitionToLane(RunLaneData lane)
     {
         float initialYPos = transform.position.y;
         for (float i = 0; i < transitionDuration; i += Time.fixedDeltaTime)
@@ -75,7 +75,7 @@ public class LaneTransition : MonoBehaviour
         animator.SetBool(ANIM_BOOL_LANE_UP, false);
     }
 
-    private void HardSetLane(RunLane lane)
+    private void HardSetLane(RunLaneData lane)
     {
         transform.position = new Vector2(transform.position.x, lane.WorldYPosition);
         gameObject.layer = LayerMask.NameToLayer(lane.CollisionLayer);

@@ -26,6 +26,11 @@ public class SharedFloat : ScriptableObject
         return a.Value * b;
     }
 
+    public static float operator /(SharedFloat a, float b)
+    {
+        return a.Value / b;
+    }
+
     public static float operator +(SharedFloat a, float b)
     {
         return a.Value + b;

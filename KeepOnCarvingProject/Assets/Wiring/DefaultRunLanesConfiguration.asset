@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: DefaultRunLanesConfiguration
   m_EditorClassIdentifier: 
   Top:
-    WorldYPosition: -1
+    WorldYPosition: -1.64
     CollisionLayer: TopLane
   Bottom:
-    WorldYPosition: -3
+    WorldYPosition: -3.6
     CollisionLayer: BottomLane
