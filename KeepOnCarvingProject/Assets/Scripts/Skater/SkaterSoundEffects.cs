@@ -65,7 +65,7 @@ public class SkaterSoundEffects : MonoBehaviour
 
     public void PlayCrashSoundEffect()
     {
-        PlayClip(crashClip);
+        PlayClip(crashClip, interrupt: true);
     }
 
     public void PlayLaneUpSoundEffect()
