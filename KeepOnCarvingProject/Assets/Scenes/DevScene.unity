@@ -353,7 +353,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 52, y: -10}
+  m_AnchoredPosition: {x: 54, y: -10}
   m_SizeDelta: {x: 100, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &450135347
@@ -852,14 +852,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1181532115}
-  - component: {fileID: 1181532117}
   - component: {fileID: 1181532118}
   - component: {fileID: 1181532116}
   - component: {fileID: 1181532119}
+  - component: {fileID: 1181532124}
+  - component: {fileID: 1181532117}
   - component: {fileID: 1181532121}
   - component: {fileID: 1181532120}
   - component: {fileID: 1181532122}
-  - component: {fileID: 1181532124}
   - component: {fileID: 1181532123}
   m_Layer: 0
   m_Name: PlayerParent
@@ -923,7 +923,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lanesConfiguration: {fileID: 11400000, guid: c414774d12e2dbb40ad0e4c1f1abd0de, type: 2}
-  transitionDuration: 0.2
+  transitionDuration: 0.3
 --- !u!95 &1181532118
 Animator:
   serializedVersion: 3
@@ -1026,6 +1026,8 @@ MonoBehaviour:
   grindClip: {fileID: 0}
   landClip: {fileID: 8300000, guid: 40d22e2bd8a056543b057a00d127f2d8, type: 3}
   crashClip: {fileID: 8300000, guid: 60692043ee06b454e8ed65c35ab405d8, type: 3}
+  laneUpClip: {fileID: 8300000, guid: 67c58fdd42b99ad4ea0a5076f18d7659, type: 3}
+  laneDownClip: {fileID: 8300000, guid: c1296df08b282ba40b6461e98daf154d, type: 3}
 --- !u!82 &1181532124
 AudioSource:
   m_ObjectHideFlags: 0

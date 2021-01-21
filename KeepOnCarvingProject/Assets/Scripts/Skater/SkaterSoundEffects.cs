@@ -23,6 +23,12 @@ public class SkaterSoundEffects : MonoBehaviour
     [SerializeField]
     private AudioClip crashClip;
 
+    [SerializeField]
+    private AudioClip laneUpClip;
+
+    [SerializeField]
+    private AudioClip laneDownClip;
+
     private AudioSource source;
 
     private Queue<(AudioClip, bool)> sfxQueue;
@@ -60,6 +66,16 @@ public class SkaterSoundEffects : MonoBehaviour
     public void PlayCrashSoundEffect()
     {
         PlayClip(crashClip);
+    }
+
+    public void PlayLaneUpSoundEffect()
+    {
+        PlayClip(laneUpClip);
+    }
+
+    public void PlayLaneDownSoundEffect()
+    {
+        PlayClip(laneDownClip);
     }
 
     private void PlayClip(AudioClip clip, bool loop = false, bool interrupt = false)

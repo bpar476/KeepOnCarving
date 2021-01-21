@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(Animator), typeof(SkaterSoundEffects))]
 public class LaneTransition : MonoBehaviour
 {
 
@@ -15,6 +16,8 @@ public class LaneTransition : MonoBehaviour
 
     private Animator animator;
 
+    private SkaterSoundEffects sfx;
+
     private bool changingLanes = false;
     private bool inTopLane;
     private float meanLanePosition;
@@ -22,6 +25,7 @@ public class LaneTransition : MonoBehaviour
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        sfx = GetComponent<SkaterSoundEffects>();
     }
 
     private void Start()
@@ -37,13 +41,17 @@ public class LaneTransition : MonoBehaviour
         {
             if (SkaterInput.Down() && inTopLane)
             {
+                // Change down lane
                 animator.SetBool(ANIM_BOOL_LANE_DOWN, true);
+                sfx.PlayLaneDownSoundEffect();
                 SwitchToLane(lanesConfiguration.Bottom);
             }
 
             if (SkaterInput.Up() && !inTopLane)
             {
+                // Chane up lane
                 animator.SetBool(ANIM_BOOL_LANE_UP, true);
+                sfx.PlayLaneUpSoundEffect();
                 SwitchToLane(lanesConfiguration.Top);
             }
         }
