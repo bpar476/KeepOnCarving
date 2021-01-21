@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(Animator), typeof(SkaterSoundEffects))]
 public class SkaterOllie : MonoBehaviour
 {
     private static readonly string ANIM_BOOL_OLLIE = "ollie";
@@ -14,18 +15,27 @@ public class SkaterOllie : MonoBehaviour
     [SerializeField]
     private SharedFloat skaterDistance;
 
+    private SkaterSoundEffects sfx;
+
     private Animator animator;
     private bool jumping = false;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        sfx = GetComponent<SkaterSoundEffects>();
+    }
+
+    private void Start()
+    {
+        sfx.PlayRollSoundEffect();
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) && !jumping)
         {
+            sfx.PlayOllieSoundEffect();
             StartCoroutine(Ollie());
         }
     }
@@ -57,5 +67,7 @@ public class SkaterOllie : MonoBehaviour
         transform.position = new Vector3(transform.position.x, initialY);
         jumping = false;
         animator.SetBool(ANIM_BOOL_OLLIE, false);
+        sfx.PlayLandSoundEffect();
+        sfx.PlayRollSoundEffect();
     }
 }

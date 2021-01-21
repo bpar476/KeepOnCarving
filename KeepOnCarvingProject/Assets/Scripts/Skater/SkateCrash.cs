@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(SkaterSoundEffects), typeof(Animator))]
 public class SkateCrash : MonoBehaviour
 {
     [SerializeField]
@@ -12,6 +13,8 @@ public class SkateCrash : MonoBehaviour
     [SerializeField]
     private EventBusContainer busContainer;
 
+    private SkaterSoundEffects sfx;
+
     private Animator animator;
 
     private EventBus eventBus;
@@ -20,6 +23,7 @@ public class SkateCrash : MonoBehaviour
     {
         eventBus = busContainer.Bus;
         animator = GetComponent<Animator>();
+        sfx = GetComponent<SkaterSoundEffects>();
     }
 
     public void Crash()
@@ -27,5 +31,6 @@ public class SkateCrash : MonoBehaviour
         eventBus.Raise<SkaterCrashEvent>(new SkaterCrashEvent());
         skaterSpeed.Value = 0;
         animator.SetTrigger("crash");
+        sfx.PlayCrashSoundEffect();
     }
 }

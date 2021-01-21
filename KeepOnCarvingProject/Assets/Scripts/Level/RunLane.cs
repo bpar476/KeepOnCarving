@@ -24,7 +24,6 @@ public class RunLane : MonoBehaviour
 
         mat = GetComponent<SpriteRenderer>().material;
         mat.SetFloat(MAT_PROPERTY_OFFSET, (float)Random.Range(0, 320));
-        Debug.Log(mat.GetFloat(MAT_PROPERTY_OFFSET));
         UpdatePathScrollSpeed();
     }
 
@@ -38,7 +37,6 @@ public class RunLane : MonoBehaviour
 
     private void UpdatePathScrollSpeed()
     {
-        Debug.Log(skaterSpeed / 25f);
         mat.SetFloat(MAT_PROPERTY_SCROLL_SPEED, skaterSpeed / 25f);
         cachedSpeed = skaterSpeed.Value;
     }
