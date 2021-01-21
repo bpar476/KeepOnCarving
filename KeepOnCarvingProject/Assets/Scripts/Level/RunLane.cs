@@ -2,8 +2,7 @@
 
 public class RunLane : MonoBehaviour
 {
-    private static readonly string MAT_PROPERTY_OFFSET = "_InitialOffset";
-    private static readonly string MAT_PROPERTY_SCROLL_SPEED = "_ScrollSpeed";
+    private static readonly string MAT_PROPERTY_SCROLL = "_ScrollOffset";
 
     [SerializeField]
     private RunLanesConfiguration configuration;
@@ -12,10 +11,11 @@ public class RunLane : MonoBehaviour
     private RunLanesConfiguration.Lane lane;
 
     [SerializeField]
-    private SharedFloat skaterSpeed;
+    private SharedFloat skaterDistance;
 
     private Material mat;
-    private float cachedSpeed;
+
+    private float offset;
 
     private void Awake()
     {
@@ -23,22 +23,18 @@ public class RunLane : MonoBehaviour
         transform.position = new Vector3(transform.position.x, data.WorldYPosition);
 
         mat = GetComponent<SpriteRenderer>().material;
-        mat.SetFloat(MAT_PROPERTY_OFFSET, (float)Random.Range(0, 320));
-        UpdatePathScrollSpeed();
+        offset = Random.Range(0, 100) / 100f;
+        UpdatePathScroll();
     }
 
     private void Update()
     {
-        if (skaterSpeed != cachedSpeed)
-        {
-            UpdatePathScrollSpeed();
-        }
+        UpdatePathScroll();
     }
 
-    private void UpdatePathScrollSpeed()
+    private void UpdatePathScroll()
     {
-        mat.SetFloat(MAT_PROPERTY_SCROLL_SPEED, skaterSpeed / 25f);
-        cachedSpeed = skaterSpeed.Value;
+        mat.SetFloat(MAT_PROPERTY_SCROLL, skaterDistance * 0.05f + offset);
     }
 
     private void OnDrawGizmos()
