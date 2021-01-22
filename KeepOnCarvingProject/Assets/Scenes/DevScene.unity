@@ -1271,6 +1271,7 @@ GameObject:
   - component: {fileID: 1181532120}
   - component: {fileID: 1181532122}
   - component: {fileID: 1181532123}
+  - component: {fileID: 1181532125}
   m_Layer: 0
   m_Name: PlayerParent
   m_TagString: Player
@@ -1534,6 +1535,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1181532125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181532114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0740a203f999224fb86342892b3aa03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1235756241
 GameObject:
   m_ObjectHideFlags: 0
@@ -2040,10 +2053,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.04797742
-    y: 0.048494983
-    width: 0.9031044
-    height: 0.90301
+    x: 0
+    y: 0
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60

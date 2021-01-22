@@ -11,4 +11,9 @@ public class SkaterInput
     {
         return Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S);
     }
+
+    public static bool Ollie()
+    {
+        return Input.GetKeyDown(KeyCode.Space);
+    }
 }

@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(Animator), typeof(SkaterSoundEffects))]
+[RequireComponent(typeof(Animator), typeof(SkaterSoundEffects), typeof(SkaterState))]
 public class SkaterOllie : MonoBehaviour
 {
+    public static readonly int COMPATIBLE_STATES = SkaterState.SKATER_STATE_ROLLING;
     private static readonly string ANIM_BOOL_OLLIE = "ollie";
 
     [SerializeField]
@@ -17,13 +18,15 @@ public class SkaterOllie : MonoBehaviour
 
     private SkaterSoundEffects sfx;
 
+    private SkaterState state;
+
     private Animator animator;
-    private bool jumping = false;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
         sfx = GetComponent<SkaterSoundEffects>();
+        state = GetComponent<SkaterState>();
     }
 
     private void Start()
@@ -31,19 +34,16 @@ public class SkaterOllie : MonoBehaviour
         sfx.PlayRollSoundEffect();
     }
 
-    private void Update()
+    public void Ollie()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !jumping)
-        {
-            sfx.PlayOllieSoundEffect();
-            StartCoroutine(Ollie());
-        }
+        state.SetState(SkaterState.SKATER_STATE_OLLIE);
+        sfx.PlayOllieSoundEffect();
+        StartCoroutine(DoOllie());
     }
 
-    private IEnumerator Ollie()
+    private IEnumerator DoOllie()
     {
         animator.SetBool(ANIM_BOOL_OLLIE, true);
-        jumping = true;
         var currentDistance = skaterDistance.Value;
         var initialY = transform.position.y;
         var firstJumpHalf = jumpDistance / 2;
@@ -65,8 +65,8 @@ public class SkaterOllie : MonoBehaviour
         }
 
         transform.position = new Vector3(transform.position.x, initialY);
-        jumping = false;
         animator.SetBool(ANIM_BOOL_OLLIE, false);
+        state.SetState(SkaterState.SKATER_STATE_ROLLING);
         sfx.PlayLandSoundEffect();
         sfx.PlayRollSoundEffect();
     }
