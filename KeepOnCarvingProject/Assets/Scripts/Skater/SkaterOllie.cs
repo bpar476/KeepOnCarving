@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator), typeof(SkaterSoundEffects), typeof(SkaterState))]
@@ -34,11 +35,10 @@ public class SkaterOllie : MonoBehaviour
         sfx.PlayRollSoundEffect();
     }
 
-    public void Ollie()
+    public IEnumerator Ollie()
     {
-        state.SetState(SkaterState.SKATER_STATE_OLLIE);
         sfx.PlayOllieSoundEffect();
-        StartCoroutine(DoOllie());
+        return DoOllie();
     }
 
     private IEnumerator DoOllie()
@@ -66,7 +66,6 @@ public class SkaterOllie : MonoBehaviour
 
         transform.position = new Vector3(transform.position.x, initialY);
         animator.SetBool(ANIM_BOOL_OLLIE, false);
-        state.SetState(SkaterState.SKATER_STATE_ROLLING);
         sfx.PlayLandSoundEffect();
         sfx.PlayRollSoundEffect();
     }

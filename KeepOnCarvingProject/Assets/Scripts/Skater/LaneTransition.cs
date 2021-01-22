@@ -39,14 +39,14 @@ public class LaneTransition : MonoBehaviour
         meanLanePosition = (lanesConfiguration.Bottom.WorldYPosition + lanesConfiguration.Top.WorldYPosition) / 2;
     }
 
-    public void ChangeLane()
+    public IEnumerator ChangeLane()
     {
         if (SkaterInput.Down() && inTopLane)
         {
             // Change down lane
             animator.SetBool(ANIM_BOOL_LANE_DOWN, true);
             sfx.PlayLaneDownSoundEffect();
-            SwitchToLane(lanesConfiguration.Bottom);
+            return SwitchToLane(lanesConfiguration.Bottom);
         }
 
         if (SkaterInput.Up() && !inTopLane)
@@ -54,14 +54,14 @@ public class LaneTransition : MonoBehaviour
             // Chane up lane
             animator.SetBool(ANIM_BOOL_LANE_UP, true);
             sfx.PlayLaneUpSoundEffect();
-            SwitchToLane(lanesConfiguration.Top);
+            return SwitchToLane(lanesConfiguration.Top);
         }
+        return null;
     }
 
-    private void SwitchToLane(RunLaneData lane)
+    private IEnumerator SwitchToLane(RunLaneData lane)
     {
-        state.SetState(SkaterState.SKATER_STATE_LANE_CHANGE);
-        StartCoroutine(SmoothTransitionToLane(lane));
+        return SmoothTransitionToLane(lane);
     }
 
     private IEnumerator SmoothTransitionToLane(RunLaneData lane)
@@ -87,7 +87,6 @@ public class LaneTransition : MonoBehaviour
         gameObject.layer = LayerMask.NameToLayer(lane.CollisionLayer);
         animator.SetBool(ANIM_BOOL_LANE_DOWN, false);
         animator.SetBool(ANIM_BOOL_LANE_UP, false);
-        state.SetState(SkaterState.SKATER_STATE_ROLLING);
     }
 
 }

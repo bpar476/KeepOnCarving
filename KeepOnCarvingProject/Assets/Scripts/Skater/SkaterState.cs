@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 [RequireComponent(typeof(SkaterOllie), typeof(LaneTransition))]
 public class SkaterState : MonoBehaviour
@@ -20,28 +21,25 @@ public class SkaterState : MonoBehaviour
         currentState = SKATER_STATE_ROLLING;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        Debug.LogFormat("State rolling: {0}", SKATER_STATE_ROLLING);
-        Debug.LogFormat("State ollie: {0}", SKATER_STATE_OLLIE);
-        Debug.LogFormat("State change lane: {0}", SKATER_STATE_LANE_CHANGE);
-    }
-
     private void Update()
     {
+        var prevState = currentState;
         if (SkaterInput.Ollie() && ((currentState & SkaterOllie.COMPATIBLE_STATES) == 1))
         {
-            ollieBehaviour.Ollie();
+            currentState = SKATER_STATE_OLLIE;
+            StartCoroutine(DoActionThenResetState(ollieBehaviour.Ollie(), prevState));
         }
         if ((SkaterInput.Down() || SkaterInput.Up()) && (currentState & LaneTransition.COMPATIBLE_STATES) == 1)
         {
-            laneTransitionBehaviour.ChangeLane();
+            currentState = SKATER_STATE_LANE_CHANGE;
+            StartCoroutine(DoActionThenResetState(laneTransitionBehaviour.ChangeLane(), prevState));
         }
     }
 
-    public void SetState(int state)
+    private IEnumerator DoActionThenResetState(IEnumerator routine, int resetState)
     {
-        currentState = state;
+        yield return StartCoroutine(routine);
+
+        currentState = resetState;
     }
 }
