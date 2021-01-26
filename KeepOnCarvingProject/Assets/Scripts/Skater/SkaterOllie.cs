@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator), typeof(SkaterSoundEffects), typeof(SkaterState))]
@@ -9,7 +8,7 @@ public class SkaterOllie : MonoBehaviour
     private static readonly string ANIM_BOOL_OLLIE = "ollie";
 
     [SerializeField]
-    private float jumpDistance;
+    private float jumpTime;
 
     [SerializeField]
     private float jumpHeight;
@@ -44,23 +43,23 @@ public class SkaterOllie : MonoBehaviour
     private IEnumerator DoOllie()
     {
         animator.SetBool(ANIM_BOOL_OLLIE, true);
-        var currentDistance = skaterDistance.Value;
+        var currentTime = Time.fixedTime;
         var initialY = transform.position.y;
-        var firstJumpHalf = jumpDistance / 2;
-        var secondJumpHalf = jumpDistance - firstJumpHalf;
+        var firstJumpHalf = jumpTime / 2;
+        var secondJumpHalf = jumpTime - firstJumpHalf;
 
         // Rise
-        for (; skaterDistance.Value < currentDistance + firstJumpHalf;)
+        for (; Time.fixedTime < currentTime + firstJumpHalf;)
         {
-            transform.position = new Vector3(transform.position.x, Mathf.Lerp(initialY, initialY + jumpHeight, (skaterDistance.Value - currentDistance) / (firstJumpHalf)));
+            transform.position = new Vector3(transform.position.x, Mathf.Lerp(initialY, initialY + jumpHeight, (Time.fixedTime - currentTime) / (firstJumpHalf)));
             yield return new WaitForFixedUpdate();
         }
 
-        currentDistance = skaterDistance.Value;
+        currentTime = Time.fixedTime;
         // Fall
-        for (; skaterDistance.Value < currentDistance + secondJumpHalf;)
+        for (; Time.fixedTime < currentTime + secondJumpHalf;)
         {
-            transform.position = new Vector3(transform.position.x, Mathf.Lerp(initialY + jumpHeight, initialY, (skaterDistance.Value - currentDistance) / (secondJumpHalf)));
+            transform.position = new Vector3(transform.position.x, Mathf.Lerp(initialY + jumpHeight, initialY, (Time.fixedTime - currentTime) / (secondJumpHalf)));
             yield return new WaitForFixedUpdate();
         }
 
