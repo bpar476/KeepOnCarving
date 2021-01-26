@@ -19,18 +19,25 @@ public class SkateCrash : MonoBehaviour
 
     private EventBus eventBus;
 
+    private bool crashed = false;
+
     private void Awake()
     {
         eventBus = busContainer.Bus;
         animator = GetComponent<Animator>();
         sfx = GetComponent<SkaterSoundEffects>();
+        crashed = false;
     }
 
     public void Crash()
     {
-        eventBus.Raise<SkaterCrashEvent>(new SkaterCrashEvent());
-        skaterSpeed.Value = 0;
-        animator.SetTrigger("crash");
-        sfx.PlayCrashSoundEffect();
+        if (!crashed)
+        {
+            eventBus.Raise<SkaterCrashEvent>(new SkaterCrashEvent());
+            skaterSpeed.Value = 0;
+            animator.SetTrigger("crash");
+            sfx.PlayCrashSoundEffect();
+            crashed = true;
+        }
     }
 }
