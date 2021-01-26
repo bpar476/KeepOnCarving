@@ -31,7 +31,6 @@ public class SkaterSpeedIncrease : MonoBehaviour
     {
         if (skaterScore > nextIncreaseScore)
         {
-            Debug.Log("Increasing skater speed");
             nextIncreaseScore += speedIncreaseScore;
             skaterSpeed.Value += speedIncreaseAmount;
         }

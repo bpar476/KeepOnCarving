@@ -1792,7 +1792,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06eebb8d2b8220343a1a59e7bdea8d8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpTime: 1
+  jumpTime: 0.8
   jumpHeight: 2.3
   skaterDistance: {fileID: 11400000, guid: fffeb7a2384b319408804df5c40fda17, type: 2}
 --- !u!114 &1181532123
