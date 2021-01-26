@@ -18,8 +18,13 @@ public class RunLaneGenerator : RandomDistanceSpawner
 
     public override GameObject Spawn()
     {
+        var laneLayer = LayerMask.NameToLayer(runLane.CollisionLayer);
         var obj = base.Spawn();
-        obj.layer = LayerMask.NameToLayer(runLane.CollisionLayer);
+        obj.layer = laneLayer;
+        for (var i = 0; i < obj.transform.childCount; i++)
+        {
+            obj.transform.GetChild(i).gameObject.layer = laneLayer;
+        }
         return obj;
     }
 }

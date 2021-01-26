@@ -7,7 +7,7 @@ public class SkaterProgressUI : MonoBehaviour
     private EventBusContainer eventBusContainer;
 
     [SerializeField]
-    private SharedFloat distance;
+    private SharedFloat score;
 
     private EventBus eventBus;
 
@@ -21,7 +21,7 @@ public class SkaterProgressUI : MonoBehaviour
 
     private void Update()
     {
-        text.text = ((int)distance.Value).ToString();
+        text.text = ((int)score.Value).ToString();
     }
 
 }
