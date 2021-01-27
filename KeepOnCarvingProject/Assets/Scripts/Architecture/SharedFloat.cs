@@ -18,6 +18,7 @@ public class SharedFloat : ScriptableObject
     private void OnEnable()
     {
         Value = defaultValue;
+        // Reset value between scenes
         SceneManager.sceneLoaded += (_1, _2) => Value = defaultValue;
     }
 

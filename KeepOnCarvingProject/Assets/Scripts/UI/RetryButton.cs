@@ -15,15 +15,21 @@ public class RetryButton : MonoBehaviour
 
     private void Awake()
     {
-        bus = busContainer.Bus;
-        crashEventHandlerGuid = bus.ListenTo<SkaterCrashEvent>(_ =>
-        {
-            retryButton.gameObject.SetActive(true);
-        });
 
         retryButton = GetComponentInChildren<Button>();
         retryButton.onClick.AddListener(() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex));
         retryButton.gameObject.SetActive(false);
+    }
+
+    private void Start()
+    {
+        bus = busContainer.Bus;
+
+        crashEventHandlerGuid = bus.ListenTo<SkaterCrashEvent>(_ =>
+            {
+                retryButton.gameObject.SetActive(true);
+            }
+        );
     }
 
     private void OnDestroy()

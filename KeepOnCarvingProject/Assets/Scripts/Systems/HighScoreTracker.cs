@@ -33,6 +33,7 @@ public class HighScoreTracker : ScriptableObject
         if (score > HighScore)
         {
             HighScore = score;
+            busContainer.Bus.Raise<NewHighScoreEvent>(new NewHighScoreEvent(HighScore));
         }
     }
 }
