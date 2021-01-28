@@ -2,6 +2,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(SkaterOllie), typeof(LaneTransition), typeof(SkaterReset))]
+[RequireComponent(typeof(SkaterSoundEffects))]
 public class SkaterState : MonoBehaviour
 {
     public static readonly int SKATER_STATE_ROLLING = 1;
@@ -16,6 +17,9 @@ public class SkaterState : MonoBehaviour
 
     private SkaterOllie ollieBehaviour;
     private SkaterReset resetBehaviour;
+
+    private SkaterSoundEffects sfx;
+
     private LaneTransition laneTransitionBehaviour;
 
     private void Awake()
@@ -23,6 +27,7 @@ public class SkaterState : MonoBehaviour
         ollieBehaviour = GetComponent<SkaterOllie>();
         laneTransitionBehaviour = GetComponent<LaneTransition>();
         resetBehaviour = GetComponent<SkaterReset>();
+        sfx = GetComponent<SkaterSoundEffects>();
         currentState = SKATER_STATE_ROLLING;
         animator = GetComponent<Animator>();
     }
@@ -33,6 +38,10 @@ public class SkaterState : MonoBehaviour
         {
             currentState = SKATER_STATE_ROLLING;
             resetBehaviour.Reset();
+        });
+        busContainer.Bus.ListenTo<GameStartEvent>(_ =>
+        {
+            sfx.PlayRollSoundEffect();
         });
     }
 

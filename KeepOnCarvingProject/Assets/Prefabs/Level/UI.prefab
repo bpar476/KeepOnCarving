@@ -238,7 +238,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4961627590043300876}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: OpenURLBehaviour, Assembly-CSharp
+        m_MethodName: OpenURL
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: http://benpartridge.me
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2117752998383234069
 GameObject:
   m_ObjectHideFlags: 0
@@ -770,6 +782,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   busContainer: {fileID: 11400000, guid: bde0310b582eb1f47bd89eecefd90411, type: 2}
+  skaterDistance: {fileID: 0}
+  skaterScore: {fileID: 0}
 --- !u!1 &4324623412850363555
 GameObject:
   m_ObjectHideFlags: 0
@@ -1454,7 +1468,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7067451279395853212}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: OpenURLBehaviour, Assembly-CSharp
+        m_MethodName: OpenURL
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: https://twitter.com/@BenPartridge249
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6090803909307936590
 GameObject:
   m_ObjectHideFlags: 0

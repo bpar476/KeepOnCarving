@@ -565,6 +565,107 @@ MonoBehaviour:
   configuration: {fileID: 11400000, guid: c414774d12e2dbb40ad0e4c1f1abd0de, type: 2}
   lane: 0
   skaterDistance: {fileID: 11400000, guid: fffeb7a2384b319408804df5c40fda17, type: 2}
+--- !u!1 &1128669548 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4178115972618632220, guid: 88289d0b20b626f458446552c92aaba8, type: 3}
+  m_PrefabInstance: {fileID: 4324623413440885552}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1128669550
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128669548}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: d121ce56c6fe304479fa5600a4ffafc8, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.528
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1160470029
 GameObject:
   m_ObjectHideFlags: 0
@@ -663,26 +764,23 @@ MonoBehaviour:
   direction: {x: -1, y: 0, z: 0}
   wrapLength: {x: 20, y: 1, z: 1}
   offset: {x: 20, y: 0, z: 0}
---- !u!1 &1283124005 stripped
+--- !u!1 &1181644921 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 1172183508597934261, guid: 6803b79d2164ddf438fc0b6244e93a3f, type: 3}
-  m_PrefabInstance: {fileID: 1172183507630405479}
+  m_CorrespondingSourceObject: {fileID: 3761399680677600630, guid: 88289d0b20b626f458446552c92aaba8, type: 3}
+  m_PrefabInstance: {fileID: 4324623413440885552}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1283124019
+--- !u!114 &1181644923
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1283124005}
+  m_GameObject: {fileID: 1181644921}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a94810e20a15324d909df81ac8f5b94, type: 3}
+  m_Script: {fileID: 11500000, guid: 14992383c645eab4cb9590e22ed9a874, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skaterDistance: {fileID: 11400000, guid: fffeb7a2384b319408804df5c40fda17, type: 2}
-  skaterScore: {fileID: 11400000, guid: 0e0661084157d3248a01afd268d8014a, type: 2}
-  skaterSpeed: {fileID: 11400000, guid: dcac5da59df026f44b6019551debb417, type: 2}
 --- !u!1 &1596913350
 GameObject:
   m_ObjectHideFlags: 0
@@ -751,7 +849,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7251058083079471834, guid: 88289d0b20b626f458446552c92aaba8, type: 3}
   m_PrefabInstance: {fileID: 4324623413440885552}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1128669548}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ecd7723d2d131dd498f5a857cdaa2ff7, type: 3}
@@ -1157,14 +1255,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerParent
       objectReference: {fileID: 0}
-    - target: {fileID: 1172183508597934265, guid: 6803b79d2164ddf438fc0b6244e93a3f, type: 3}
-      propertyPath: busContainer
-      value: 
-      objectReference: {fileID: 11400000, guid: bde0310b582eb1f47bd89eecefd90411, type: 2}
-    - target: {fileID: 1172183508597934266, guid: 6803b79d2164ddf438fc0b6244e93a3f, type: 3}
-      propertyPath: busContainer
-      value: 
-      objectReference: {fileID: 11400000, guid: bde0310b582eb1f47bd89eecefd90411, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6803b79d2164ddf438fc0b6244e93a3f, type: 3}
 --- !u!1001 &2123390087168445412
@@ -1393,6 +1483,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 3915120853559351198, guid: 88289d0b20b626f458446552c92aaba8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1181644923}
     - target: {fileID: 4324623411897019289, guid: 88289d0b20b626f458446552c92aaba8, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -10
@@ -1533,6 +1627,14 @@ PrefabInstance:
       propertyPath: skaterScore
       value: 
       objectReference: {fileID: 11400000, guid: 0e0661084157d3248a01afd268d8014a, type: 2}
+    - target: {fileID: 6099450257984571420, guid: 88289d0b20b626f458446552c92aaba8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1181644923}
+    - target: {fileID: 7251058083079471834, guid: 88289d0b20b626f458446552c92aaba8, type: 3}
+      propertyPath: busContainer
+      value: 
+      objectReference: {fileID: 11400000, guid: bde0310b582eb1f47bd89eecefd90411, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88289d0b20b626f458446552c92aaba8, type: 3}
 --- !u!1001 &5207308006341692317

@@ -29,11 +29,6 @@ public class SkaterOllie : MonoBehaviour
         state = GetComponent<SkaterState>();
     }
 
-    private void Start()
-    {
-        sfx.PlayRollSoundEffect();
-    }
-
     public IEnumerator Ollie()
     {
         sfx.PlayOllieSoundEffect();

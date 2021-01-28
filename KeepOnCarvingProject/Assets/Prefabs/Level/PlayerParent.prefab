@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 1172183508597934266}
   - component: {fileID: 1172183508597934265}
   - component: {fileID: 1172183508597934264}
+  - component: {fileID: 943327689391267019}
   m_Layer: 0
   m_Name: PlayerParent
   m_TagString: Player
@@ -441,6 +442,21 @@ MonoBehaviour:
   skaterSpeed: {fileID: 11400000, guid: dcac5da59df026f44b6019551debb417, type: 2}
   speedIncreaseScore: 200
   speedIncreaseAmount: 1
+--- !u!114 &943327689391267019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172183508597934261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a94810e20a15324d909df81ac8f5b94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skaterDistance: {fileID: 11400000, guid: fffeb7a2384b319408804df5c40fda17, type: 2}
+  skaterScore: {fileID: 11400000, guid: 0e0661084157d3248a01afd268d8014a, type: 2}
+  skaterSpeed: {fileID: 11400000, guid: dcac5da59df026f44b6019551debb417, type: 2}
 --- !u!1 &1172183508724284629
 GameObject:
   m_ObjectHideFlags: 0

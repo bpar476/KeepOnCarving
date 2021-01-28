@@ -13,3 +13,5 @@ public class NewHighScoreEvent : KeepOnCarvingEvent
 }
 
 public class RetryEvent : KeepOnCarvingEvent { }
+
+public class GameStartEvent : KeepOnCarvingEvent { }

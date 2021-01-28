@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(Animator), typeof(SkaterSoundEffects))]
 public class SkaterReset : MonoBehaviour
 {
     private static readonly string ANIM_TRIGGER_RETRY = "retry";
@@ -18,9 +18,12 @@ public class SkaterReset : MonoBehaviour
 
     private Animator animator;
 
+    private SkaterSoundEffects sfx;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        sfx = GetComponent<SkaterSoundEffects>();
     }
 
     public void Reset()
@@ -30,6 +33,7 @@ public class SkaterReset : MonoBehaviour
         skaterSpeed.Value = skaterSpeed.DefaultValue;
 
         animator.SetTrigger(ANIM_TRIGGER_RETRY);
+        sfx.PlayRollSoundEffect();
     }
 
 }
