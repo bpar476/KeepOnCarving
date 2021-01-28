@@ -128,3 +128,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skaterDistance: {fileID: 11400000, guid: fffeb7a2384b319408804df5c40fda17, type: 2}
   parallaxFactor: 0.5
+  busContainer: {fileID: 11400000, guid: bde0310b582eb1f47bd89eecefd90411, type: 2}

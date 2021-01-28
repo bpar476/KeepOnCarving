@@ -23,10 +23,15 @@ public class SkateCrash : MonoBehaviour
 
     private void Awake()
     {
-        eventBus = busContainer.Bus;
         animator = GetComponent<Animator>();
         sfx = GetComponent<SkaterSoundEffects>();
         crashed = false;
+    }
+
+    private void Start()
+    {
+        eventBus = busContainer.Bus;
+        eventBus.ListenTo<RetryEvent>(_ => crashed = false);
     }
 
     public void Crash()

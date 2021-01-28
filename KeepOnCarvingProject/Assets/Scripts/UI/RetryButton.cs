@@ -7,6 +7,13 @@ public class RetryButton : MonoBehaviour
 {
     [SerializeField]
     private EventBusContainer busContainer;
+
+    [SerializeField]
+    private SharedFloat skaterDistance;
+
+    [SerializeField]
+    private SharedFloat skaterScore;
+
     private Button retryButton;
 
     private EventBus bus;
@@ -15,9 +22,8 @@ public class RetryButton : MonoBehaviour
 
     private void Awake()
     {
-
         retryButton = GetComponentInChildren<Button>();
-        retryButton.onClick.AddListener(() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex));
+        retryButton.onClick.AddListener(Retry);
         retryButton.gameObject.SetActive(false);
     }
 
@@ -30,6 +36,13 @@ public class RetryButton : MonoBehaviour
                 retryButton.gameObject.SetActive(true);
             }
         );
+    }
+
+    private void Retry()
+    {
+        bus.Raise<RetryEvent>(new RetryEvent());
+        retryButton.gameObject.SetActive(false);
+        skaterDistance.Value = 0;
     }
 
     private void OnDestroy()

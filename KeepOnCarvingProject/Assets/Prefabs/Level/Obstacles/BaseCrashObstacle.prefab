@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skaterDistance: {fileID: 11400000, guid: fffeb7a2384b319408804df5c40fda17, type: 2}
   parallaxFactor: 1
+  busContainer: {fileID: 11400000, guid: bde0310b582eb1f47bd89eecefd90411, type: 2}
 --- !u!1 &6728783169445703544
 GameObject:
   m_ObjectHideFlags: 0

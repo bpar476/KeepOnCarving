@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6245750927615396928}
   - component: {fileID: 6245750927615396931}
   m_Layer: 0
-  m_Name: TopLaneSpawner
+  m_Name: LaneSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,5 +48,6 @@ MonoBehaviour:
   generator: {fileID: 0}
   skaterDistance: {fileID: 11400000, guid: fffeb7a2384b319408804df5c40fda17, type: 2}
   offscreenOffset: 17
+  busContainer: {fileID: 11400000, guid: bde0310b582eb1f47bd89eecefd90411, type: 2}
   lanesConfiguration: {fileID: 11400000, guid: c414774d12e2dbb40ad0e4c1f1abd0de, type: 2}
   lane: 0

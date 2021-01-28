@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class RandomDistanceSpawner : MonoBehaviour
 {
@@ -29,12 +30,16 @@ public class RandomDistanceSpawner : MonoBehaviour
     [SerializeField]
     private float offscreenOffset;
 
+    [SerializeField]
+    private EventBusContainer busContainer;
+
     private float nextSpawnLocation;
+
+    private System.Guid eventListenerToken;
 
     private void Start()
     {
-        nextSpawnLocation = 0;
-        CalculateNextSpawnLocation();
+        eventListenerToken = busContainer.Bus.ListenTo<RetryEvent>(_ => Initialise());
     }
 
     void Update()
@@ -46,9 +51,23 @@ public class RandomDistanceSpawner : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        if (busContainer != null && busContainer.Bus != null)
+        {
+            busContainer.Bus.UnsubscribeFrom<SkaterCrashEvent>(eventListenerToken);
+        }
+    }
+
     public virtual GameObject Spawn()
     {
         return generator.Spawn(new Vector2(nextSpawnLocation + offscreenOffset, transform.position.y));
+    }
+
+    private void Initialise()
+    {
+        nextSpawnLocation = 0;
+        CalculateNextSpawnLocation();
     }
 
     private void CalculateNextSpawnLocation()

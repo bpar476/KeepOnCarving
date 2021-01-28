@@ -15,6 +15,8 @@ public class SharedFloat : ScriptableObject
 
     public float Value;
 
+    public float DefaultValue { get { return defaultValue; } }
+
     private void OnEnable()
     {
         Value = defaultValue;

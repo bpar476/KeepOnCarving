@@ -11,3 +11,5 @@ public class NewHighScoreEvent : KeepOnCarvingEvent
         this.Score = score;
     }
 }
+
+public class RetryEvent : KeepOnCarvingEvent { }
